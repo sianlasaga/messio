@@ -8,12 +8,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:messio/screens/ConversationListScreen.dart';
+import 'package:messio/widgets/ChatItemWidget.dart';
 
 void main() {
   MaterialApp app = MaterialApp(
     home: Scaffold(
-      body: ConversationListScreen(),
+      body: ChatItemWidget(0),
     ),
   );
 

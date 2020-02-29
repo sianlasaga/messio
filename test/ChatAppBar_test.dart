@@ -8,12 +8,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:messio/screens/ConversationListScreen.dart';
+import 'package:messio/widgets/ChatAppBar.dart';
 
 void main() {
   MaterialApp app = MaterialApp(
     home: Scaffold(
-      body: ConversationListScreen(),
+      body: ChatAppBar(),
     ),
   );
 
@@ -22,7 +22,7 @@ void main() {
 
     expect(find.text('Sian'), findsOneWidget);
     expect(find.text('@sianlasaga'), findsOneWidget);
-    expect(find.byType(IconButton), findsNWidgets(1));
+    expect(find.byType(Icon), findsNWidgets(1));
     expect(find.byType(CircleAvatar), findsOneWidget);
   });
 }
