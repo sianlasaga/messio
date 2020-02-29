@@ -13,12 +13,12 @@ class ChatAppBar extends StatelessWidget implements PreferredSizeWidget {
         TextStyle(color: Palette.primaryTextColor, fontSize: 20);
     var textStyle = TextStyle(color: Palette.secondaryTextColor);
 
-    double width = MediaQuery.of(context).size.width;
     return Material(
       child: Container(
         decoration: BoxDecoration(
             boxShadow: [BoxShadow(color: Colors.black, blurRadius: 5.0)]),
         child: Container(
+          padding: EdgeInsets.only(top: 10, bottom: 10),
           color: Palette.primaryBackgroundColor,
           child: Row(
             children: <Widget>[
@@ -29,7 +29,6 @@ class ChatAppBar extends StatelessWidget implements PreferredSizeWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       Container(
-                        // height: 70 - (width * 0.6),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
@@ -59,34 +58,36 @@ class ChatAppBar extends StatelessWidget implements PreferredSizeWidget {
                           ],
                         ),
                       ),
-                      //second row containing the buttons for media
-                      Container(
-                        height: 23,
-                        padding: EdgeInsets.fromLTRB(20, 5, 5, 0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              'Photos',
-                              style: textStyle,
-                            ),
-                            VerticalDivider(
-                              width: 30,
-                              color: Palette.primaryTextColor,
-                            ),
-                            Text(
-                              'Videos',
-                              style: textStyle,
-                            ),
-                            VerticalDivider(
-                              width: 30,
-                              color: Palette.primaryTextColor,
-                            ),
-                            Text('Files', style: textStyle)
-                          ],
+                      Expanded(
+                        flex: 3,
+                        child: Container(
+                          padding: EdgeInsets.fromLTRB(20, 5, 5, 0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              Text(
+                                'Photos',
+                                style: textStyle,
+                              ),
+                              VerticalDivider(
+                                width: 30,
+                                color: Palette.primaryTextColor,
+                              ),
+                              Text(
+                                'Videos',
+                                style: textStyle,
+                              ),
+                              VerticalDivider(
+                                width: 30,
+                                color: Palette.primaryTextColor,
+                              ),
+                              Text('Files', style: textStyle)
+                            ],
+                          ),
                         ),
                       )
+                      //second row containing the buttons for media
                     ],
                   ),
                 ),
@@ -97,7 +98,7 @@ class ChatAppBar extends StatelessWidget implements PreferredSizeWidget {
                 child: Container(
                   child: Center(
                     child: CircleAvatar(
-                      // radius: (80 - (width * 0.6)) / 2,
+                      radius: 30,
                       backgroundImage: Image.asset(Assets.user).image,
                     ),
                   ),
