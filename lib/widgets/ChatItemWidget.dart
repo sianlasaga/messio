@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:messio/config/Palette.dart';
 import 'package:intl/intl.dart';
+import 'package:messio/config/Styles.dart';
 
 class ChatItemWidget extends StatelessWidget {
   final int index;
@@ -34,16 +35,11 @@ class ChatItemWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
                 Container(
-                  margin: EdgeInsets.only(left: 5, top: 5, bottom: 5),
-                  child: Text(
-                    DateFormat('dd MMM kk:mm').format(
-                        DateTime.fromMillisecondsSinceEpoch(1565888474278)),
-                    style: TextStyle(
-                        color: Palette.greyColor,
-                        fontSize: 12,
-                        fontStyle: FontStyle.normal),
-                  ),
-                )
+                    margin: EdgeInsets.only(left: 5, top: 5, bottom: 5),
+                    child: Text(
+                        DateFormat('dd MMM kk:mm').format(
+                            DateTime.fromMillisecondsSinceEpoch(1565888474278)),
+                        style: Styles.date)),
               ],
             )
           ],
@@ -73,13 +69,9 @@ class ChatItemWidget extends StatelessWidget {
             Container(
               margin: EdgeInsets.only(left: 5, top: 5, bottom: 5),
               child: Text(
-                DateFormat('dd MMM kk:mm')
-                    .format(DateTime.fromMillisecondsSinceEpoch(1565888474278)),
-                style: TextStyle(
-                    color: Palette.greyColor,
-                    fontSize: 12,
-                    fontStyle: FontStyle.normal),
-              ),
+                  DateFormat('dd MMM kk:mm').format(
+                      DateTime.fromMillisecondsSinceEpoch(1565888474278)),
+                  style: Styles.date),
             )
           ],
         ),

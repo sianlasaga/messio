@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:messio/screens/ConversationListScreen.dart';
+import 'package:messio/config/Palette.dart';
+import 'package:messio/screens/ConversationSlideScreen.dart';
 
 void main() => runApp(Messio());
 
@@ -9,10 +10,8 @@ class Messio extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Messio',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: ConversationListScreen(),
+      theme: ThemeData(primaryColor: Palette.primaryColor),
+      home: ConversationSlideScreen(),
     );
   }
 }
