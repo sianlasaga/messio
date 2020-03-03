@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:messio/screens/ConversationScreen.dart';
+import 'package:messio/widgets/InputWidget.dart';
 import 'package:rubber/rubber.dart';
+import 'package:messio/widgets/ConversationBottomSheet.dart';
 
 class ConversationSlideScreen extends StatefulWidget {
   ConversationSlideScreen({Key key}) : super(key: key);
@@ -12,6 +14,7 @@ class ConversationSlideScreen extends StatefulWidget {
 
 class _ConversationSlideScreenState extends State<ConversationSlideScreen>
     with SingleTickerProviderStateMixin {
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   var controller;
 
   @override
@@ -22,12 +25,41 @@ class _ConversationSlideScreenState extends State<ConversationSlideScreen>
 
   @override
   Widget build(BuildContext context) {
-    return PageView(
-      children: <Widget>[
-        ConversationScreen(),
-        ConversationScreen(),
-        ConversationScreen()
-      ],
+    return SafeArea(
+      child: Scaffold(
+        key: _scaffoldKey,
+        body: Column(
+          children: <Widget>[
+            Expanded(
+              child: PageView(
+                children: <Widget>[
+                  ConversationScreen(),
+                  ConversationScreen(),
+                  ConversationScreen()
+                ],
+              ),
+            ),
+            Container(
+              child: GestureDetector(
+                child: InputWidget(),
+                onPanUpdate: (details) {
+                  if (details.delta.dy < 0) {
+                    _scaffoldKey.currentState.showBottomSheet(
+                        (context) => ConversationBottomSheet());
+                  }
+                },
+              ),
+            )
+          ],
+        ),
+      ),
     );
+    // return PageView(
+    //   children: <Widget>[
+    //     ConversationScreen(),
+    //     ConversationScreen(),
+    //     ConversationScreen()
+    //   ],
+    // );
   }
 }
