@@ -54,12 +54,5 @@ class _ConversationSlideScreenState extends State<ConversationSlideScreen>
         ),
       ),
     );
-    // return PageView(
-    //   children: <Widget>[
-    //     ConversationScreen(),
-    //     ConversationScreen(),
-    //     ConversationScreen()
-    //   ],
-    // );
   }
 }

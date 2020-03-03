@@ -8,19 +8,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:messio/screens/ConversationListScreen.dart';
 import 'package:messio/screens/ConversationScreen.dart';
+import 'package:messio/screens/ConversationSlideScreen.dart';
+import 'package:messio/widgets/InputWidget.dart';
 
 void main() {
   MaterialApp app = MaterialApp(
     home: Scaffold(
-      body: ConversationListScreen(),
+      body: ConversationSlideScreen(),
     ),
   );
 
-  testWidgets('ConversationListScreen UI Test', (WidgetTester tester) async {
+  testWidgets('ConversationSlideScreen UI Test', (WidgetTester tester) async {
     await tester.pumpWidget(app);
     expect(find.byType(ConversationScreen), findsOneWidget);
     expect(find.byType(PageView), findsOneWidget);
+    expect(find.byType(InputWidget), findsOneWidget);
   });
 }
